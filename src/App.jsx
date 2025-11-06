@@ -1,24 +1,24 @@
 import React from 'react';
 import { Layout, Menu, Typography, Card, Statistic, Tag, Timeline, Divider, Row, Col, Button, theme, Affix, Avatar } from 'antd';
 import {
-  SafetyOutlined,
-  CodeOutlined,
-  BugOutlined,
-  LinkedinOutlined,
-  MailOutlined,
-  PhoneOutlined,
-  RocketOutlined,
-  StarOutlined,
+  SafetyOutlined,
+  CodeOutlined,
+  BugOutlined,
+  LinkedinOutlined,
+  MailOutlined,
+  PhoneOutlined,
+  RocketOutlined,
+  StarOutlined,
 } from '@ant-design/icons';
 import './App.css'; 
 
 const { Header, Content, Footer } = Layout;
 const { Title, Paragraph, Text } = Typography;
 
-
 const PINK_ACCENT = '#ff4d94'; 
-const DARK_BG = '#1a1a33';    
-const DARK_GRAY = '#404040';  
+const DARK_BG = '#1a1a33';    
+const DARK_GRAY = '#404040';  
+
 
 const AppHeader = () => {
     const items = [
@@ -28,6 +28,7 @@ const AppHeader = () => {
         { key: 'education', label: 'Education' },
         { key: 'contact', label: 'Contact' },
     ];
+  
     
     const handleMenuClick = (e) => {
         document.getElementById(e.key)?.scrollIntoView({ behavior: 'smooth' });
@@ -66,6 +67,8 @@ const AppHeader = () => {
 
 
 const SummarySection = () => {
+    
+   const publicImageUrl = `${import.meta.env.BASE_URL}Kwena.jpeg`;
 
     return (
         <div id="summary" 
@@ -75,7 +78,7 @@ const SummarySection = () => {
             <div style={{ marginBottom: 20 }}>
                 <Avatar 
                     size={150} 
-                    src="src\image\Kwena.jpeg" // Placeholder
+                    src={publicImageUrl} 
                     alt="Desree Mabusela Professional Avatar"
                     style={{ border: `4px solid ${PINK_ACCENT}` }} 
                 />
@@ -139,7 +142,7 @@ const SummarySection = () => {
 const ExperienceItem = ({ icon, date, title, tags, children }) => {
     return (
         <Row gutter={24} style={{ marginBottom: 40, alignItems: 'stretch' }}>
-          
+           
             <Col xs={24} md={4} style={{ textAlign: 'left' }}>
                 <Text strong style={{ color: PINK_ACCENT, fontSize: '15px', display: 'flex', alignItems: 'center' }}>
                     {icon}
@@ -147,7 +150,7 @@ const ExperienceItem = ({ icon, date, title, tags, children }) => {
                 </Text>
             </Col>
 
-          
+           
             <Col xs={24} md={20}>
                 <Card 
                     title={
@@ -160,7 +163,7 @@ const ExperienceItem = ({ icon, date, title, tags, children }) => {
                    
                     style={{ backgroundColor: DARK_BG, height: '100%', padding: '10px 15px' }} 
                 >
-                  
+                    
                     <ul style={{ color: '#ccc', listStyleType: 'disc', paddingLeft: '20px', margin: '0 0 10px 0', fontSize: '14px' }}>
                         {children}
                     </ul>
@@ -178,7 +181,6 @@ const ExperienceItem = ({ icon, date, title, tags, children }) => {
 };
 
 
-
 const ExperienceSection = () => {
 
     return (
@@ -188,7 +190,7 @@ const ExperienceSection = () => {
                 Professional Experience
             </Title>
             
-         
+            
             <ExperienceItem
                 icon={<BugOutlined style={{ color: PINK_ACCENT, fontSize: '16px' }} />}
                 date="06/2023 - Present"
@@ -200,12 +202,12 @@ const ExperienceSection = () => {
                 ]}
             >
                 <li>Lead UAT coordination and acceptance criteria alignment, improving sign-off rates by <strong>40%</strong>.</li>
-                <li>Developed automated <strong>Playwright </strong>scripts, boosting test coverage and cutting manual testing effort by <strong>30%</strong></li>
+                <li>Developed automated <strong>Playwright </strong>scripts, boosting test coverage and cutting manual testing effort by <strong>30%</strong>.</li>
                 <li>Managed a <strong>Jira</strong> defect tracking workflow, reducing recurrence of critical bugs by <strong>40%</strong>.</li>
                 <li>Collaborated with developers to reproduce and resolve defects early, preventing <strong>25%</strong> of critical bugs from reaching UAT.</li>
             </ExperienceItem>
 
-      
+           
             <ExperienceItem
                 icon={<CodeOutlined style={{ color: PINK_ACCENT, fontSize: '16px' }} />}
                 date="01/2021 - 06/2023"
@@ -223,7 +225,7 @@ const ExperienceSection = () => {
                 <li>Developed and maintained front-end applications using <strong>React</strong> and <strong>Ant Design</strong>.</li>
             </ExperienceItem>
 
-          
+           
             <ExperienceItem
                 icon={<StarOutlined style={{ color: PINK_ACCENT, fontSize: '16px' }} />}
                 date="01/2020 - 11/2020"
@@ -243,6 +245,7 @@ const ExperienceSection = () => {
         </div>
     );
 };
+
 
 const SkillsSection = () => {
 
@@ -325,9 +328,11 @@ const EducationSection = () => {
                 <Col xs={24} md={12}>
                     <Card 
                         title={
-                            <Title level={4} style={{ color: PINK_ACCENT, margin: 0 }}>
-                                Academic Background
-                            </Title>
+                            <div style={{ minHeight: '30px' }}>
+                                <Title level={4} style={{ color: PINK_ACCENT, margin: 0 }}>
+                                    Academic Background
+                                </Title>
+                            </div>
                         }
                         border={true} 
                         size="small" 
@@ -336,14 +341,22 @@ const EducationSection = () => {
                         <Title level={4} style={{ color: '#f0f0f0' }}>BSc in Information Technology</Title>
                         <Text strong style={{ color: '#ccc' }}>Richfield Graduate Institute of Technology</Text>
                         <Paragraph style={{ marginTop: 5, color: '#999' }}>2019</Paragraph>
+                        
+                       
+                        <Divider style={{ margin: '10px 0', borderColor: 'transparent' }} /> 
+                        <Title level={4} style={{ marginBottom: 5, color: 'transparent' }}>&nbsp;</Title>
+                        <Text strong style={{ color: 'transparent', display: 'block' }}>&nbsp;</Text>
+                       
                     </Card>
                 </Col>
                 <Col xs={24} md={12}>
                     <Card 
                         title={
-                            <Title level={4} style={{ color: PINK_ACCENT, margin: 0 }}>
-                                Certifications
-                            </Title>
+                            <div style={{ minHeight: '30px' }}>
+                                <Title level={4} style={{ color: PINK_ACCENT, margin: 0 }}>
+                                    Certifications
+                                </Title>
+                            </div>
                         }
                         border={true} 
                         size="small" 
