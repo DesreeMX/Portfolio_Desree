@@ -4,7 +4,6 @@
   "name": "desree-portfolio",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://github.com/DesreeMX/Portfolio_Desree",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build", 
